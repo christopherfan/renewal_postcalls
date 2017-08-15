@@ -26,7 +26,6 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
 
 
-
 public class Main {
 
     private String apiusername;
@@ -42,9 +41,9 @@ public class Main {
         post_body.put("Product", "PhotoPrint");
         post_body.put("SoldTo", "Warren Paper");
         post_body.put("TotalQuantity", 50);
-        post_body.put("ExpirationDate", "May 1, 2017");
+        post_body.put("ExpirationDate", "May 11, 2017");
         post_body.put("Entitlement", "9dc4-88f9-b8bf-48c0-a567-e578-617c-edaa");
-
+        String url = "https://calm-earth-14228.herokuapp.com/todo/api/v1.0/items";
 
 
         System.out.println("Hello World!");
@@ -70,7 +69,7 @@ public class Main {
         try {
 
             System.out.println("\n Posting to Heroku");
-            post_response = postRequestWithBody(post_body.toJSONString());
+            post_response = postRequestWithBody(url, post_body.toJSONString());
             String responseString = new BasicResponseHandler().handleResponse(post_response);
             System.out.println("\n Post Response");
             System.out.println(responseString);
@@ -81,8 +80,8 @@ public class Main {
 
     }
 
-    public static HttpResponse postRequestWithBody(String json) throws ClientProtocolException, IOException {
-        return Request.Post("https://calm-earth-14228.herokuapp.com/todo/api/v1.0/items")
+    public static HttpResponse postRequestWithBody(String url, String json) throws ClientProtocolException, IOException {
+        return Request.Post(url)
                 .addHeader("app-header", "example")
                 .bodyString(json, ContentType.APPLICATION_JSON)
                 .execute().returnResponse();
