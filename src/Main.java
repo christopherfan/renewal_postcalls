@@ -1,36 +1,23 @@
-import java.net.*;
+
 import java.io.*;
 
-import java.util.Map;
-
-import org.apache.http.*;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.fluent.Request;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.utils.URIBuilder;
+
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
-import org.apache.http.util.EntityUtils;
 
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.entity.ContentType;
 import org.apache.http.HttpResponse;
-import org.json.simple.parser.JSONParser;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.ParseException;
+
 
 
 public class Main {
-
-    private String apiusername;
-    private String apipassword;
-    private String apiURL;
 
     public static void main(String[] args) {
 
@@ -46,26 +33,9 @@ public class Main {
         String url = "https://calm-earth-14228.herokuapp.com/todo/api/v1.0/items";
 
 
-        System.out.println("Hello World!");
-        CloseableHttpClient httpclient = HttpClients.createDefault();
-        HttpGet httpGet = new HttpGet("http://www.google.com");
+        System.out.println("Starting POST Rest Calls to App\n ");
+
         HttpResponse post_response;
-        ResponseHandler<String> responseHandler=new BasicResponseHandler();
-
-
-        try {
-            CloseableHttpResponse response = httpclient.execute(httpGet);
-
-            String rest_response = Request.Get("https://calm-earth-14228.herokuapp.com/todo/api/v1.0/items")
-                    .execute().returnContent().asString();
-
-            System.out.println("\nDoes this work>>>>>>>>>>");
-            System.out.println(rest_response);
-
-        }catch (IOException ioe ){
-            System.out.println(ioe);
-        }
-
         try {
 
             System.out.println("\n Posting to Heroku");
@@ -76,6 +46,21 @@ public class Main {
 
         }catch (IOException e){
             e.printStackTrace();
+        }
+
+        System.out.println("\n Verify POST successful in GET Statement");
+
+        try {
+
+
+            String rest_response = Request.Get("https://calm-earth-14228.herokuapp.com/todo/api/v1.0/items")
+                    .execute().returnContent().asString();
+
+            System.out.println("\nDoes this work>>>>>>>>>>");
+            System.out.println(rest_response);
+
+        }catch (IOException ioe ){
+            System.out.println(ioe);
         }
 
     }
