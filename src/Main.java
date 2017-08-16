@@ -2,14 +2,12 @@
 import java.io.*;
 
 import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.ResponseHandler;
+
 import org.apache.http.client.fluent.Request;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpGet;
 
 import org.apache.http.impl.client.BasicResponseHandler;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
+
+
 
 import org.apache.http.entity.ContentType;
 import org.apache.http.HttpResponse;
@@ -26,9 +24,9 @@ public class Main {
         post_body.put("Type","Subscription");
         post_body.put("RemainingDays", 25);
         post_body.put("Product", "PhotoPrint");
-        post_body.put("SoldTo", "Warren Paper");
-        post_body.put("TotalQuantity", 50);
-        post_body.put("ExpirationDate", "May 11, 2017");
+        post_body.put("SoldTo", "Candy Store");
+        post_body.put("TotalQuantity", 100);
+        post_body.put("ExpirationDate", "Dec 11, 2017");
         post_body.put("Entitlement", "9dc4-88f9-b8bf-48c0-a567-e578-617c-edaa");
         String url = "https://calm-earth-14228.herokuapp.com/todo/api/v1.0/items";
 

@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Renewal_Callout">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/lib/httpcomponents-client-4.5.3/examples" />
+      <root url="file://$PROJECT_DIR$/src" />
+    </SOURCES>
+  </library>
+</component>

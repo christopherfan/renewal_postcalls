@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="HTTP_Libraries">
+    <CLASSES />
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/lib/httpcomponents-client-4.5.3/examples" />
+    </SOURCES>
+  </library>
+</component>
